@@ -33,7 +33,7 @@ const t = document.getElementById(theDay)
         </tr>
         <tr id='Tuesday'>
           <th>Tuesday</th>
-          <td className='text-right'>8 AM–12 AM</td>
+          <td className='text-right'>8 AM–12 PM</td>
         </tr>
         <tr id='Wednesday'>
           <th>Wednesday</th>
