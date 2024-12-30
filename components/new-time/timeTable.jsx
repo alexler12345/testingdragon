@@ -41,7 +41,7 @@ const t = document.getElementById(theDay)
         </tr>
         <tr id='Thursday'>
           <th>Thursday</th>
-          <td className='text-right'>Closed</td>
+          <td className='text-right'>8 AM–5 PM</td>
         </tr>
         <tr id='Friday'>
           <th>Friday</th>
