@@ -5,14 +5,18 @@ import NewContact from '@/components/new-contact';
 import NewTime from '@/components/new-time/time';
 
 
+
 export const metadata = {
   title: 'Vanee Truck Wash',
   description: 'Locally owned and operated forever washing trucks, trailers and RVs',
 };
 
+
 export default function Home() {
+
   return (
     <>
+
       <Title />
 
       <div
@@ -31,7 +35,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-col w-full lg:w-[50%]">
-          <NewTime t={false} />
+          <NewTime/>
         </div>
       </div>
 
