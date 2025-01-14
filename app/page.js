@@ -23,7 +23,7 @@ export default async function Home() {
    const baseUrl = "https://www.googleapis.com/calendar/v3/calendars";
    const apiKey = process.env.GOOGLE_CALENDAR_API_KEY; // Use your API key from environment variables
    var o = []
- for (let i=0; i<calendarId.length; i++){
+ for (let i=0; i<2; i++){
 
      const url = `${baseUrl}/${encodeURIComponent(calendarId[i])}/events?key=${apiKey}&orderBy=startTime&singleEvents=true&timeMin=${events.toISOString()}&timeMax=${event.toISOString()}`;
 
