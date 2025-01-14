@@ -73,15 +73,14 @@ export default function Timetable (p) {
 
  
  
-  if(!p) {
-    var who = Defaulttime
-  }else {
-    var who = structuredClone(p[Timedata])
-    
-  }
+  const who = p ? structuredClone(p[Timedata]) : Defaulttime;
+
+
+
   console.log(
     'it looks like your looking at the  source code lucky for you all of it is on https://github.com/alexler12345/Vaneetruckwash.git'
   )
+console.log(who)
 
     
 
@@ -94,6 +93,7 @@ export default function Timetable (p) {
     const nextDay = new Date(today) // Clone the current date
     nextDay.setDate(today.getDate() + i) // Increment the date
     next7Days.push(formatter.format(nextDay)) // Format and add to the array
+    console.log('data: ',next7Days[i], who[next7Days[i]])
   }
 
   const toggleData = () => {
@@ -151,12 +151,35 @@ export default function Timetable (p) {
   
    <table className="openinghours">
       <tbody>
-        {[...Array(7)].map((_, index) => (
-          <tr tabindex={0} title={Timedata == 1 ? 'Bay hours' : 'Office hours'} key={index} id={index.toString()} className={`focus:border-3 focus:border-blue-100 ${index == 0 ? !isOfficeOpen(who)? 'closed':'open' : ''}`}>
-            <th>{next7Days[index]}</th>
-            <td  className={`text-right ${convertTo12Hour(who[next7Days[index]].start,who[next7Days[index]].end) == "Closed" && who[next7Days[index]].isallday == false ? "offDays" : ''}`}>{who[next7Days[index]].isallday == true && who[next7Days[index]].start == null ? '24 hours': convertTo12Hour(who[next7Days[index]].start,who[next7Days[index]].end)}</td>
-          </tr>
-        ))}
+      {[...Array(7)].map((_, index) => {
+    const dayData = who[next7Days[index]] || {}; // Use default empty object
+    return (
+      <tr
+        tabIndex={0}
+        title={Timedata == 1 ? 'Bay hours' : 'Office hours'}
+        key={index}
+        id={index.toString()}
+        className={`focus:border-3 focus:border-blue-100 ${
+          index == 0 && !isOfficeOpen(who) ? 'closed' : 'open'
+        }`}
+      >
+        <th>{next7Days[index]}</th>
+        <td
+          className={`text-right ${
+            convertTo12Hour(dayData.start, dayData.end) === 'Closed' &&
+            dayData.isallday === false
+              ? 'offDays'
+              : ''
+          }`}
+        >
+          {dayData.isallday && dayData.start == null
+            ? '24 hours'
+            : convertTo12Hour(dayData.start, dayData.end)}
+        </td>
+      </tr>
+    );
+})}
+
       </tbody>
     </table>
     </>
