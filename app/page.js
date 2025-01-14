@@ -4,6 +4,7 @@ import Title from '@/components/title';
 import NewContact from '@/components/new-contact';
 import NewTime from '@/components/new-time/time';
 import { FormCal } from "@/components/subComp/test";
+import { notFound } from 'next/navigation';
 
 
 export const metadata = {
@@ -28,11 +29,13 @@ export default async function Home() {
 
 //86400
  const response = await fetch(url,{next: {revalidate: 5}})
+  if (!response) {
 
+  } else {
  const data = await response.json()
 
 
-  o[i] = FormCal(data)
+  o[i] = FormCal(data)}
  }
   return (
     <>
