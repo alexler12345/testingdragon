@@ -25,7 +25,7 @@ export default async function Home() {
  for (let i=0; i<calendarId.length; i++){
 
      const url = `${baseUrl}/${encodeURIComponent(calendarId[i])}/events?key=${apiKey}&orderBy=startTime&singleEvents=true&timeMin=${events.toISOString()}&timeMax=${event.toISOString()}`;
-console.log(url)
+
 //86400
  const response = await fetch(url,{next: {revalidate: 5}})
 

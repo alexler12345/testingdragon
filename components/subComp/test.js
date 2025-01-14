@@ -29,8 +29,7 @@ export function FormCal (l) {
       officeHours[k].isallday = true
     } else {
       var o = numtoDay[new Date(temp[i].start.dateTime).getDay()]
-      console.log(o)
-      console.log(officeHours[o])
+     
       officeHours[o].start = new Intl.DateTimeFormat('en-US', {
         timeZone: 'America/Denver',
         hour: '2-digit',
@@ -51,6 +50,6 @@ export function FormCal (l) {
   
   }
 
-  console.log(officeHours)
+
   return officeHours
 }

@@ -71,13 +71,13 @@ export default function Timetable (p) {
   //true = office hours //false = bay hours
   const [Timedata, setTimedata] = useState(0)
 
-  console.log(Timedata)
+ 
  
   if(!p) {
     var who = Defaulttime
   }else {
     var who = structuredClone(p[Timedata])
-    console.log(who,"d")
+    
   }
   console.log(
     'it looks like your looking at the  source code lucky for you all of it is on https://github.com/alexler12345/Vaneetruckwash.git'
