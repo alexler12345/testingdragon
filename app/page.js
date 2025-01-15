@@ -34,12 +34,12 @@ try {
  if (response.ok) {
   const data = await response.json()
 
-  o[i] = FormCal(Defaulttime[i])
+  o[i] = FormCal(data)
   
 
  } else {
-  console.error('Promise resolved but HTTP status failed');
-  o[i] = FormCal
+  console.error('Promise resolved but HTTP status failed \n Using default time for: ',i==0?'Office hours':'Bay hours');
+  o[i] = FormCal(Defaulttime[i])
 }
 } catch {
 console.error('Promise rejected');
