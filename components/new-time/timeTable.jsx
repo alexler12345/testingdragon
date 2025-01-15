@@ -73,7 +73,7 @@ export default function Timetable (p) {
 
  
  
-  const who = p ? structuredClone(p[Timedata]) : Defaulttime;
+  const who = structuredClone(p[Timedata])
 
 
 

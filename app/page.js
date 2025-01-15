@@ -4,7 +4,7 @@ import Title from '@/components/title';
 import NewContact from '@/components/new-contact';
 import NewTime from '@/components/new-time/time';
 import { FormCal } from "@/components/subComp/test";
-import { notFound } from 'next/navigation';
+import { Defaulttime } from '@/components/subComp/calandertimes';
 
 
 export const metadata = {
@@ -34,10 +34,12 @@ try {
  if (response.ok) {
   const data = await response.json()
 
-  o[i] = FormCal(data)
+  o[i] = FormCal(Defaulttime[i])
+  
 
  } else {
   console.error('Promise resolved but HTTP status failed');
+  o[i] = FormCal
 }
 } catch {
 console.error('Promise rejected');
