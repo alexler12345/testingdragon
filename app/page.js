@@ -28,15 +28,22 @@ export default async function Home() {
      const url = `${baseUrl}/${encodeURIComponent(calendarId[i])}/events?key=${apiKey}&orderBy=startTime&singleEvents=true&timeMin=${events.toISOString()}&timeMax=${event.toISOString()}`;
 
 //86400
- const response = await fetch(url,{next: {revalidate: 5}})
-  if (!response) {
+try {
 
-  } else {
+ const response = await fetch(url,{next: {revalidate: 5}})
+} catch (e) {
+
+  console.error(e)
+  
+}
+ 
+
+  
  const data = await response.json()
 
 
   o[i] = FormCal(data)}
- }
+ 
   return (
     <>
 
