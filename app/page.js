@@ -31,18 +31,21 @@ export default async function Home() {
 try {
 
  const response = await fetch(url,{next: {revalidate: 5}})
-} catch (e) {
+ if (response.ok) {
+  const data = await response.json()
 
-  console.error(e)
-  
+  o[i] = FormCal(data)
+
+ } else {
+  console.error('Promise resolved but HTTP status failed');
+}
+} catch {
+console.error('Promise rejected');
 }
  
 
   
- const data = await response.json()
-
-
-  o[i] = FormCal(data)}
+ }
  
   return (
     <>
