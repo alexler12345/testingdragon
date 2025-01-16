@@ -1,6 +1,12 @@
 export function FormCal (l) {
-  let data = structuredClone(l)
-
+  
+    
+  try {
+  console.log(l.length)
+  } catch {
+    console.error("data may be null")
+  }
+  const data = l
   const numtoDay = [
     'Sunday',
     'Monday',
@@ -22,6 +28,9 @@ export function FormCal (l) {
   }
 
   var temp = data.items
+
+  
+
 
   for (var i = 0; i < temp.length; i++) {
     if (!temp[i].start.dateTime) {

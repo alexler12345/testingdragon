@@ -24,12 +24,13 @@ export default async function Home() {
     events.setUTCHours(0,0,0,0);
    const calendarId = ["a16c4aac33575e5eddfc40fac317fc414d26f123a733f3651cacbe268e85f3a4@group.calendar.google.com","e6e9e8c902d57bb7f9d63b62c5831292c8246381ed1c6931e063168ba924bc24@group.calendar.google.com"]; // Replace with your calendar ID
    const baseUrl = "https://www.googleapis.com/calendar/v3/calendars";
-   const apiKey = process.env.GOOGLE_CALENDAR_API_KEY; // Use your API key from environment variables
+   const apiKey = null; // Use your API key from environment variables
    var o = []
    if (!apiKey) {
     console.warn('No google API key found using default times')
-    o[0] = FormCal(Defaulttime[0])
-    o[1] = FormCal(Defaulttime[1])
+    o[0] = Defaulttime[0]
+
+    o[1] = Defaulttime[1]
    } else {
    
  for (let i=0; i<2; i++){
@@ -48,7 +49,7 @@ try {
 
  } else {
   console.warn('Promise resolved but HTTP status failed \n Using default times');
-  o[i] = FormCal(Defaulttime[i])
+  o[i] = Defaulttime[i]
 }
 } catch {
 console.error('Promise rejected');

@@ -2,7 +2,7 @@ import './time.css'
 import Timetable from './timeTable'
 //start of class
 export default function NewTime (i) {
-  const clockIconSize = 47
+ 
 
   return (
     <>
