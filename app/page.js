@@ -12,12 +12,9 @@ export const metadata = {
   description: 'Locally owned and operated forever washing trucks, trailers and RVs',
 };
 
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-export default function Home() {
-=======
->>>>>>> 7739d07ca5e6cb422113c74c50861f739be6225e
+
+
+
 
 export default async function Home() {
   const event = new Date()
@@ -29,6 +26,12 @@ export default async function Home() {
    const baseUrl = "https://www.googleapis.com/calendar/v3/calendars";
    const apiKey = process.env.GOOGLE_CALENDAR_API_KEY; // Use your API key from environment variables
    var o = []
+   if (!apiKey) {
+    console.warn('No google API key found using default times')
+    o[0] = FormCal(Defaulttime[0])
+    o[1] = FormCal(Defaulttime[1])
+   } else {
+   
  for (let i=0; i<2; i++){
 
      const url = `${baseUrl}/${encodeURIComponent(calendarId[i])}/events?key=${apiKey}&orderBy=startTime&singleEvents=true&timeMin=${events.toISOString()}&timeMax=${event.toISOString()}`;
@@ -44,7 +47,7 @@ try {
   
 
  } else {
-  console.warn('Promise resolved but HTTP status failed \n Using default time for: ',i==0?'Office hours':'Bay hours');
+  console.warn('Promise resolved but HTTP status failed \n Using default times');
   o[i] = FormCal(Defaulttime[i])
 }
 } catch {
@@ -54,11 +57,8 @@ console.error('Promise rejected');
 
   
  }
- 
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> 7739d07ca5e6cb422113c74c50861f739be6225e
+}
+
   return (
     <>
 
