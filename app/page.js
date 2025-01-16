@@ -12,6 +12,12 @@ export const metadata = {
   description: 'Locally owned and operated forever washing trucks, trailers and RVs',
 };
 
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+export default function Home() {
+=======
+>>>>>>> 7739d07ca5e6cb422113c74c50861f739be6225e
 
 export default async function Home() {
   const event = new Date()
@@ -49,6 +55,10 @@ console.error('Promise rejected');
   
  }
  
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> 7739d07ca5e6cb422113c74c50861f739be6225e
   return (
     <>
 
